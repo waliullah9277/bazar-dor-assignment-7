@@ -7,21 +7,32 @@ const Banner = () => {
     });
 
     return (
-        <section className="container mx-auto px-4 py-2 sm:py-4">
-            <div className="flex items-center justify-between gap-3 rounded-3xl bg-slate-100 p-3 sm:gap-6 sm:p-5">
-                {/* Left side: Text */}
-                <div className="flex-1">
-                    <div className="bg-green-50 w-55 py-2 text-center rounded-3xl" >
-                        <p className="text-xs font-medium text-green-700 sm:text-sm md:text-base">
-                        {date}
-                    </p>
+        <section className="container mx-auto px-3 py-2 sm:px-4 sm:py-4">
+            <div className="flex flex-col items-center justify-between gap-3 rounded-2xl bg-white p-3 sm:flex-row-reverse sm:gap-6 sm:rounded-3xl sm:p-5">
+                {/* Image: mobile e upore, sm+ e dane */}
+                <div className="w-3/5 shrink-0 sm:w-2/5 md:w-1/3">
+                    <Image
+                        src="/bazar-hero.png"
+                        alt="বাজারের পণ্যের ছবি"
+                        width={400}
+                        height={400}
+                        className="h-auto w-full"
+                    />
+                </div>
+
+                {/* Text: mobile e niche, sm+ e bame */}
+                <div className="min-w-0 flex-1 text-center sm:text-left">
+                    <div className="mx-auto w-fit rounded-3xl bg-green-50 px-4 py-1.5 text-center sm:mx-0 sm:w-55 sm:py-2">
+                        <p className="text-[11px] font-medium text-green-700 sm:text-sm md:text-base">
+                            {date}
+                        </p>
                     </div>
 
-                    <h2 className="w-100 mt-2 text-base font-semibold leading-relaxed text-gray-900 sm:text-2xl lg:text-4xl">
+                    <h2 className="mt-2 w-full text-lg font-semibold leading-snug text-gray-900 sm:w-100 sm:text-2xl sm:leading-relaxed lg:text-4xl">
                         আজকের বাজারের দাম এক নজরে
                     </h2>
 
-                    <p className="mt-2 w-150 text-xs leading-relaxed text-gray-600 sm:mt-4 sm:text-sm md:text-base">
+                    <p className="mt-2 w-full text-xs leading-relaxed text-gray-600 sm:mt-4 sm:w-150 sm:text-sm md:text-base">
                         চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম —
                         বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং
                         দামের পরিবর্তন এক জায়গায়।
@@ -33,17 +44,6 @@ const Banner = () => {
                     >
                         সব পণ্য দেখুন
                     </Link>
-                </div>
-
-                {/* Right side: Image */}
-                <div className="w-2/5 shrink-0 md:w-1/3">
-                    <Image
-                        src="/bazar-hero.png"
-                        alt="বাজারের পণ্যের ছবি"
-                        width={400}
-                        height={400}
-                        className="h-auto w-full"
-                    />
                 </div>
             </div>
         </section>

@@ -8,7 +8,7 @@ const Header = () => {
     });
 
     return (
-        <header className="w-full">
+        <header className="w-full bg-white">
             <nav className="navbar mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
                 <div className="navbar-start">
                     <Link
