@@ -4,7 +4,7 @@ import TodayPriceUp from "@/components/TodayPriceUp";
 import TodayPriceDown from "@/components/TodaysPriceDown";
 import { Product } from "@/types/types";
 
-const getProducts = async(): Promise<Product[]>=>{
+const getProducts = async (): Promise<Product[]> => {
   const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products")
 
   const products = await res.json()
@@ -18,9 +18,12 @@ export default async function Home() {
 
   return (
     <div>
-      <Banner/>
+      <Banner />
       <TodayPriceUp products={products} />
       <TodayPriceDown products={products} />
+      <section id="all-products" className="scroll-mt-32">
+        <AllProducts products={products} />
+      </section>
     </div>
   );
 }

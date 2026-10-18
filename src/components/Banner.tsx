@@ -38,12 +38,12 @@ const Banner = () => {
                         দামের পরিবর্তন এক জায়গায়।
                     </p>
 
-                    <Link
-                        href="/products"
+                    <a
+                        href="#all-products"
                         className="btn btn-sm mt-3 border-none bg-green-700 text-white hover:bg-green-800 sm:btn-md sm:mt-6"
                     >
                         সব পণ্য দেখুন
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
