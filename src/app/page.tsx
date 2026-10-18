@@ -21,7 +21,7 @@ export default async function Home() {
       <Banner />
       <TodayPriceUp products={products} />
       <TodayPriceDown products={products} />
-      <section id="all-products" className="scroll-mt-32">
+      <section id="সব-পণ্য" className="scroll-mt-32">
         <AllProducts products={products} />
       </section>
     </div>

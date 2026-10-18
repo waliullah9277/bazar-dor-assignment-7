@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -11,7 +12,8 @@ interface ICategoryLink {
 
 const CategoryLink = ({ slug, nameBn, icon }: ICategoryLink) => {
     const pathname = usePathname();
-    const href = `/categories/${slug}`;
+
+    const href = `/category/${slug}`;
     const isActive = pathname === href;
 
     return (

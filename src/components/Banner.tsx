@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const Banner = () => {
     const date = new Date().toLocaleDateString("bn-BD", {
@@ -39,7 +38,7 @@ const Banner = () => {
                     </p>
 
                     <a
-                        href="#all-products"
+                        href="#সব-পণ্য"
                         className="btn btn-sm mt-3 border-none bg-green-700 text-white hover:bg-green-800 sm:btn-md sm:mt-6"
                     >
                         সব পণ্য দেখুন

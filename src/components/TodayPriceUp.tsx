@@ -35,7 +35,7 @@ const TodayPriceUp = ({ products }: { products: Product[] }) => {
                 </h2>
             </div>
 
-            <Link href={"/"} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
+            <Link href={""} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
                 {up.map((product) => (
                     <article
                         key={product.id}
