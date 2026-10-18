@@ -11,7 +11,6 @@ const CategoriesPage = () => {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [category, setCategory] = useState<Category>();
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     const [sortBy, setSortBy] = useState<
@@ -36,7 +35,6 @@ const CategoriesPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true);
                 setError("");
 
                 const [productsRes, categoryRes] = await Promise.all([
@@ -68,8 +66,6 @@ const CategoriesPage = () => {
             } catch (err) {
                 console.error(err);
                 setError("পণ্য লোড করা যায়নি। আবার চেষ্টা করো।");
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -77,10 +73,6 @@ const CategoriesPage = () => {
             fetchData();
         }
     }, [slug]);
-
-    if (loading) {
-        return <div className="text-center">পণ্য লোড হচ্ছে...</div>;
-    }
 
     if (error) {
         return <div className="text-center font-bold mt-8 text-4xl">{error}</div>;

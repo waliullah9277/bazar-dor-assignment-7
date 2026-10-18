@@ -118,7 +118,7 @@ const AllProducts = ({ products }: { products: Product[] }) => {
                         return (
                             <Link
                                 key={product.id}
-                                href={`/products/${product.slug}`}
+                                href={`/product/${product.id}`}
                                 className="block rounded-3xl border border-transparent bg-[#fbfdfb] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-600 hover:shadow-md"
                             >
                                 {/* Product information */}

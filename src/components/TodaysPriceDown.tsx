@@ -35,56 +35,55 @@ const TodayPriceDown = ({ products }: { products: Product[] }) => {
                 </h2>
             </div>
 
-            <Link href={""} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
                 {up.map((product) => (
-                    <article
-                        key={product.id}
-                        className="rounded-3xl border border-transparent hover:border-emerald-600 bg-[#fbfdfb] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
-                    >
-                        {/* Product information */}
-                        <div className="flex items-center gap-4">
-                            <div className="flex h-18 w-18 shrink-0 items-center justify-center rounded-2xl bg-[#f0f5f0] text-3xl">
-                                {product.image}
+                    <Link key={product.id} href={`/product/${product.id}`}>
+                        <article className="rounded-3xl border border-transparent hover:border-emerald-600 bg-[#fbfdfb] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
+                            {/* Product information */}
+                            <div className="flex items-center gap-4">
+                                <div className="flex h-18 w-18 shrink-0 items-center justify-center rounded-2xl bg-[#f0f5f0] text-3xl">
+                                    {product.image}
+                                </div>
+
+                                <div className="min-w-0">
+                                    <h3 className="truncate text-lg font-bold text-gray-950 sm:text-xl">
+                                        {product.nameBn}
+                                    </h3>
+                                    <p className="text-sm text-gray-500">
+                                        প্রতি {unitNames[String(product.unit).trim().toLowerCase()] ?? "একক"}
+                                    </p>
+                                </div>
                             </div>
 
-                            <div className="min-w-0">
-                                <h3 className="truncate text-lg font-bold text-gray-950 sm:text-xl">
-                                    {product.nameBn}
-                                </h3>
-                                <p className="text-sm text-gray-500">
-                                    প্রতি {unitNames[String(product.unit).trim().toLowerCase()] ?? "একক"}
-                                </p>
-                            </div>
-                        </div>
+                            {/* Price and increase */}
+                            <div className="mt-5 flex items-end justify-between gap-3">
+                                <div>
+                                    <p className="mb-1 text-sm text-gray-500">
+                                        আজকের দাম
+                                    </p>
+                                    <p className="text-2xl font-semibold text-gray-950">
+                                        ৳{Number(product.today).toLocaleString("bn-BD")}
+                                        <span className="ml-1 text-base font-normal">
+                                            টাকা
+                                        </span>
+                                    </p>
+                                </div>
 
-                        {/* Price and increase */}
-                        <div className="mt-5 flex items-end justify-between gap-3">
-                            <div>
-                                <p className="mb-1 text-sm text-gray-500">
-                                    আজকের দাম
-                                </p>
-                                <p className="text-2xl font-semibold text-gray-950">
-                                    ৳{Number(product.today).toLocaleString("bn-BD")}
-                                    <span className="ml-1 text-base font-normal">
-                                        টাকা
-                                    </span>
-                                </p>
+                                <div className="shrink-0 rounded-full bg-[#f0f5f0] px-3 py-2 text-sm font-semibold text-green-600">
+                                    ▼{" "}
+                                    {Math.abs(Number(product.change.pct)).toLocaleString(
+                                        "bn-BD",
+                                        {
+                                            maximumFractionDigits: 2,
+                                        }
+                                    )}
+                                    %
+                                </div>
                             </div>
-
-                            <div className="shrink-0 rounded-full bg-[#f0f5f0] px-3 py-2 text-sm font-semibold text-green-600">
-                                ▼{" "}
-                                {Math.abs(Number(product.change.pct)).toLocaleString(
-                                    "bn-BD",
-                                    {
-                                        maximumFractionDigits: 2,
-                                    }
-                                )}
-                                %
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                    </Link>
                 ))}
-            </Link>
+            </div>
 
             {up.length === 0 && (
                 <p className="rounded-xl bg-gray-50 py-8 text-center text-gray-500">

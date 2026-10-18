@@ -35,10 +35,11 @@ const TodayPriceUp = ({ products }: { products: Product[] }) => {
                 </h2>
             </div>
 
-            <Link href={""} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mx-5">
                 {up.map((product) => (
-                    <article
+                    <Link
                         key={product.id}
+                        href={`/product/${product.id}`}
                         className="rounded-3xl border border-transparent hover:border-emerald-600 bg-[#fbfdfb] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
                     >
                         {/* Product information */}
@@ -82,9 +83,9 @@ const TodayPriceUp = ({ products }: { products: Product[] }) => {
                                 %
                             </div>
                         </div>
-                    </article>
+                    </Link>
                 ))}
-            </Link>
+            </div>
 
             {up.length === 0 && (
                 <p className="rounded-xl bg-gray-50 py-8 text-center text-gray-500">
