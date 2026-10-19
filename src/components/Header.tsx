@@ -37,14 +37,14 @@ const Header = () => {
 
                 <div className="navbar-end gap-1.5 sm:gap-2">
                     <Link
-                        href="/sign-in"
+                        href="/signin"
                         className="btn btn-ghost btn-xs rounded-lg px-2 min-[360px]:px-3 sm:btn-md sm:px-5"
                     >
                         সাইন ইন
                     </Link>
 
                     <Link
-                        href="/sign-up"
+                        href="/signup"
                         className="btn btn-xs rounded-lg border-green-600 bg-green-600 px-2 text-white hover:border-green-700 hover:bg-green-700 min-[360px]:px-3 sm:btn-md sm:px-5"
                     >
                         সাইন আপ
