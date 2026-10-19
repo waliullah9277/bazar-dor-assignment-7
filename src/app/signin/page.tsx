@@ -126,17 +126,17 @@ const SignInPage = () => {
                         type="submit"
                         className="mt-2 w-full cursor-pointer rounded-xl bg-green-600 py-3 font-semibold text-white shadow-md transition duration-300 hover:bg-green-700 hover:shadow-lg"
                     >
-                        সাইন আপ করুন
+                        সাইন ইন করুন
                     </button>
                 </form>
 
                 {/* Social Login Divider */}
-                <div className="relative my-5 flex items-center">
-                    <div className="border-t border-base-300"></div>
-                    <span className="px-4 text-xs font-medium uppercase tracking-widest text-base-content/50">
-                        Or continue with
+                <div className="my-5 flex items-center">
+                    <div className="flex-1 border-t border-base-300" />
+                    <span className="px-4 text-xs font-medium text-base-content/50">
+                        অথবা এর মাধ্যমে চালিয়ে যান
                     </span>
-                    <div className="border-t border-base-300"></div>
+                    <div className="flex-1 border-t border-base-300" />
                 </div>
 
                 {/* Google Sign In */}
@@ -198,12 +198,12 @@ const SignInPage = () => {
                 </button>
 
                 <p className="mt-5 text-center text-sm text-base-content/70">
-                    আগে থেকেই অ্যাকাউন্ট আছে?
+                    অ্যাকাউন্ট নেই?
                     <a
-                        href="/signin"
+                        href="/signup"
                         className="link link-primary ml-1 font-semibold"
                     >
-                        সাইন ইন করুন
+                        সাইন আপ করুন
                     </a>
                 </p>
             </fieldset>

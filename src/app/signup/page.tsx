@@ -204,12 +204,12 @@ const SignUpPage = () => {
                 </form>
 
                 {/* Social Login Divider */}
-                <div className="relative my-5 flex items-center">
-                    <div className="border-t border-base-300"></div>
-                    <span className="px-4 text-xs font-medium uppercase tracking-widest text-base-content/50">
-                        Or continue with
+                <div className="my-5 flex items-center">
+                    <div className="flex-1 border-t border-base-300" />
+                    <span className="px-4 text-xs font-medium text-base-content/50">
+                        অথবা এর মাধ্যমে চালিয়ে যান
                     </span>
-                    <div className="border-t border-base-300"></div>
+                    <div className="flex-1 border-t border-base-300" />
                 </div>
 
                 {/* Google Sign In */}

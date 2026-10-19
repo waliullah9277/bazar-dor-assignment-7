@@ -39,7 +39,7 @@ const Banner = () => {
 
                     <a
                         href="#সব-পণ্য"
-                        className="btn btn-sm mt-3 border-none bg-green-700 text-white hover:bg-green-800 sm:btn-md sm:mt-6 mb-3"
+                        className="btn btn-md mt-3 border-none bg-green-700 text-white hover:bg-green-800 sm:btn-lg sm:mt-6 mb-3"
                     >
                         সব পণ্য দেখুন
                     </a>

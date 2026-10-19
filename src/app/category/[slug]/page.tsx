@@ -1,8 +1,9 @@
 "use client";
 
 import CategoryCard from "@/components/CategoryCard";
+import NotFoundCard from "@/components/NotFoundCard";
 import { Category, Product } from "@/types/types";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const CategoriesPage = () => {
@@ -11,12 +12,12 @@ const CategoriesPage = () => {
 
     const [products, setProducts] = useState<Product[]>([]);
     const [category, setCategory] = useState<Category>();
-    const [error, setError] = useState("");
+    const [isNotFound, setIsNotFound] = useState(false);
+    const [hasError, setHasError] = useState(false);
 
     const [sortBy, setSortBy] = useState<
         "default" | "price-low" | "price-high"
     >("default");
-
 
     const sortedProducts = [...products].sort((a, b) => {
         if (sortBy === "price-low") {
@@ -30,12 +31,11 @@ const CategoriesPage = () => {
         return 0;
     });
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setError("");
+                setIsNotFound(false);
+                setHasError(false);
 
                 const [productsRes, categoryRes] = await Promise.all([
                     fetch(
@@ -50,7 +50,7 @@ const CategoriesPage = () => {
                     productsRes.status === 404 ||
                     categoryRes.status === 404
                 ) {
-                    setError("এই ক্যাটাগরিটি খুঁজে পাওয়া যায়নি।");
+                    setIsNotFound(true);
                     return;
                 }
 
@@ -65,7 +65,7 @@ const CategoriesPage = () => {
                 setCategory(categoryData.data ?? categoryData);
             } catch (err) {
                 console.error(err);
-                setError("পণ্য লোড করা যায়নি। আবার চেষ্টা করো।");
+                setHasError(true);
             }
         };
 
@@ -74,13 +74,23 @@ const CategoriesPage = () => {
         }
     }, [slug]);
 
-    if (error) {
-        return <div className="text-center font-bold mt-8 text-4xl">{error}</div>;
+    // Category nai: app/not-found.tsx er page dekhabe
+    if (isNotFound) {
+        notFound();
+    }
+
+    // Network / server error: NotFoundCard alada message diye
+    if (hasError) {
+        return (
+            <NotFoundCard
+                title="পণ্য লোড করা যায়নি!"
+                description="দুঃখিত, কিছু একটা সমস্যা হয়েছে। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।"
+            />
+        );
     }
 
     return (
         <div className="container mx-auto">
-
             <div className="mx-5 mb-5 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm sm:p-5">
                 <div className="min-w-0">
                     <div className="flex items-center gap-3">
@@ -101,7 +111,6 @@ const CategoriesPage = () => {
                     </p>
                 </div>
             </div>
-
 
             <div className="mx-5 mb-5 flex items-center justify-between gap-3 px-3">
                 {/* Left side: Product count */}
@@ -159,10 +168,8 @@ const CategoriesPage = () => {
                 </div>
             </div>
 
-
             {/* category card */}
             <CategoryCard products={sortedProducts} />
-
         </div>
     );
 };

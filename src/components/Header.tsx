@@ -29,7 +29,7 @@ const Header = () => {
                                 বাজার দর
                             </h2>
 
-                            <p className="mt-0 truncate text-[8px] text-gray-500 min-[360px]:text-[13px] min-[360px]:leading-3 sm:mt-0.5 sm:text-sm sm:leading-5">
+                            <p className="mt-0 text-[8px] leading-3 text-gray-500 whitespace-normal break-words min-[360px]:text-[13px] min-[360px]:leading-4 sm:mt-0.5 sm:text-sm sm:leading-5">
                                 {date}
                             </p>
                         </div>
@@ -37,7 +37,7 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-end gap-1.5 sm:gap-2">
-                    <UserDetails/>
+                    <UserDetails />
                 </div>
             </nav>
 
