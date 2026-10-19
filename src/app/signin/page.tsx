@@ -24,13 +24,17 @@ const SignInPage = () => {
         });
 
         if (data) {
-            toast.success("আপনি সফলভাবে সাইন ইন করেছেন!");
-            redirect('/');
+            toast.success("আপনি সফলভাবে সাইন ইন করেছেন!", {
+                duration: 5000,
+            });
+
+            redirect("/");
         } else {
             const message =
                 error?.message ?? "সাইন ইন ব্যর্থ হয়েছে। আবার চেষ্টা করুন।";
 
             toast.error(message, {
+                duration: 5000,
                 style: {
                     whiteSpace: "nowrap",
                     maxWidth: "none",

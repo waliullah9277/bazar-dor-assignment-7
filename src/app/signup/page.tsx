@@ -42,8 +42,11 @@ const SignUpPage = () => {
 
         if (data) {
             // console.log("Sign Up Successfully", data);
-            toast.success("আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
-            redirect('/signin');
+            toast.success("আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!", {
+                duration: 5000,
+            });
+
+            redirect("/");
         } else {
             const message =
                 error?.message === "User already exists. Use another email."
@@ -51,6 +54,7 @@ const SignUpPage = () => {
                     : error?.message ?? "সাইন আপ ব্যর্থ হয়েছে। আবার চেষ্টা করুন।";
 
             toast.error(message, {
+                duration: 5000,
                 style: {
                     whiteSpace: "nowrap",
                     maxWidth: "none",
