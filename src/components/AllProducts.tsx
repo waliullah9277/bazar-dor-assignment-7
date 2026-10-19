@@ -26,7 +26,7 @@ const AllProducts = ({ products }: { products: Product[] }) => {
     };
 
     return (
-        <section className="mx-auto w-full max-w-7xl py-6">
+        <section className="mx-auto w-full container py-6">
             {/* Heading and sorting */}
             <div className="mx-5 mb-5 flex flex-row items-center justify-between gap-3 px-3">
                 <div className="min-w-0">

@@ -16,7 +16,7 @@ const TodayPriceUp = ({ products }: { products: Product[] }) => {
     };
 
     return (
-        <section className="w-full py-6 max-w-7xl mx-auto">
+        <section className="w-full py-6 container mx-auto">
             <div className="mb-5 flex items-center gap-2 px-3 mx-5">
                 <span className="text-red-600">
                     <svg

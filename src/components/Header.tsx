@@ -10,7 +10,7 @@ const Header = () => {
 
     return (
         <header className="sticky top-0 z-50 w-full bg-white">
-            <nav className="navbar mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+            <nav className="navbar mx-auto container px-3 sm:px-6 lg:px-8">
                 <div className="navbar-start">
                     <Link
                         href="/"
