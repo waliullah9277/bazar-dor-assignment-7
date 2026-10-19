@@ -152,14 +152,14 @@ const UserDetails = () => {
                 <div className="flex items-center gap-2">
                     <Link
                         href="/signin"
-                        className="btn btn-ghost btn-xs rounded-lg px-2 min-[360px]:px-3 sm:btn-md sm:px-5"
+                        className="btn btn-ghost btn-xs rounded-lg px-2 text-[11px] min-[360px]:btn-sm min-[360px]:px-3 min-[360px]:text-xs sm:btn-md sm:px-4 sm:text-sm lg:px-5"
                     >
                         সাইন ইন
                     </Link>
 
                     <Link
                         href="/signup"
-                        className="btn btn-xs rounded-lg border-green-600 bg-green-600 px-2 text-white hover:border-green-700 hover:bg-green-700 min-[360px]:px-3 sm:btn-md sm:px-5"
+                        className="btn btn-xs rounded-lg border-green-600 bg-green-600 px-2 text-[11px] text-white hover:border-green-700 hover:bg-green-700 min-[360px]:btn-sm min-[360px]:px-3 min-[360px]:text-xs sm:btn-md sm:px-4 sm:text-sm lg:px-5"
                     >
                         সাইন আপ
                     </Link>

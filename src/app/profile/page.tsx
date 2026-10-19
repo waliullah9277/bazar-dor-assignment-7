@@ -3,21 +3,16 @@
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const ProfilePage = () => {
     const router = useRouter();
-    const { data: session, isPending } = authClient.useSession();
+    const { data: session } = authClient.useSession();
     const user = session?.user;
 
     const [name, setName] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
-
-    // Login na thakle signin e pathao
-    useEffect(() => {
-        if (!isPending && !user) router.replace("/signin");
-    }, [isPending, user, router]);
 
     const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -50,13 +45,15 @@ const ProfilePage = () => {
 
         toast.success("সফলভাবে সাইন আউট করেছেন!");
         router.push("/signin");
+        router.refresh();
     };
 
+    // Session client e load hocche
     if (!user) return null;
 
     return (
         <main className="container mx-auto px-3 py-6 sm:px-4 sm:py-8">
-            <div className="mx-auto max-w-2xl">
+            <div className="mx-4 lg:mx-auto max-w-2xl">
                 <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">
                     আমার প্রোফাইল
                 </h1>
@@ -67,11 +64,10 @@ const ProfilePage = () => {
                 {/* User card */}
                 <section className="mt-4 flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
                     <div className="flex items-center gap-4">
-                        {/* Avatar: image thakle image, na thakle prothom okkhor */}
                         <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-green-600 text-2xl font-semibold text-white sm:h-16 sm:w-16">
                             {user.image ? (
                                 <Image
-                                    src={user?.image}
+                                    src={user.image}
                                     alt={user.name || "User"}
                                     width={64}
                                     height={64}

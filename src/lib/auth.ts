@@ -11,7 +11,7 @@ export const auth = betterAuth({
     "http://localhost:3000",
     "https://bazar-dor-assignment-7-two.vercel.app/",
     // preview deployment er jonno chaile:
-    "https://*.vercel.app",
+    // "https://*.vercel.app",
   ],
   emailAndPassword: {
     enabled: true,

@@ -32,7 +32,7 @@ const PriceTicker = async () => {
 
     return (
         <div className="border-b border-green-100 mb-3 font-medium">
-            <MarqueeText direction="right" duration={10} pauseOnHover={true}>
+            <MarqueeText className="mt-3" direction="right" duration={10} pauseOnHover={true}>
                 {products.map((product) => {
                     return (
                         <div

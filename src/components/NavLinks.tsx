@@ -16,8 +16,8 @@ const NavLinks = async () => {
 
     return (
         <nav className="w-full border-y border-gray-200 bg-white">
-            <div className="container mx-auto px-3 sm:px-6 lg:px-8">
-                <div className="flex gap-3 overflow-x-auto py-1 text-sm font-medium sm:gap-4 sm:text-base">
+            <div className="container mx-auto px-1 sm:px-6 lg:px-8">
+                <div className="flex gap-1 overflow-x-auto py-1 text-sm font-medium sm:gap-3 sm:text-base">
                     {navlinks.map((n) => (
                         <CategoryLink
                             key={n.id}

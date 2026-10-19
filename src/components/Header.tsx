@@ -16,7 +16,7 @@ const Header = () => {
                         href="/"
                         className="flex min-w-0 items-center gap-2 sm:gap-3"
                     >
-                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-green-600 sm:h-9 sm:w-9">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-green-600 sm:h-9 sm:w-9">
                             <ShoppingBasket
                                 size={25}
                                 strokeWidth={2}
@@ -25,11 +25,11 @@ const Header = () => {
                         </div>
 
                         <div className="min-w-0">
-                            <h2 className="truncate text-[11px] font-bold leading-4 min-[360px]:text-xs sm:text-xl sm:leading-normal">
+                            <h2 className="truncate text-[11px] font-bold leading-4 min-[360px]:text-lg sm:text-xl sm:leading-normal">
                                 বাজার দর
                             </h2>
 
-                            <p className="mt-0 truncate text-[8px] text-gray-500 min-[360px]:text-[9px] min-[360px]:leading-3 sm:mt-0.5 sm:text-sm sm:leading-5">
+                            <p className="mt-0 truncate text-[8px] text-gray-500 min-[360px]:text-[13px] min-[360px]:leading-3 sm:mt-0.5 sm:text-sm sm:leading-5">
                                 {date}
                             </p>
                         </div>
@@ -42,7 +42,7 @@ const Header = () => {
             </nav>
 
             {/* Navigation - Below Header */}
-            <nav className="py-3">
+            <nav className="mt-3">
                 <NavLinks />
             </nav>
         </header>
