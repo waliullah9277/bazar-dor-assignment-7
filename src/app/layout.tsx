@@ -17,8 +17,11 @@ const notoSansBengali = Noto_Sans_Bengali({
 
 
 export const metadata: Metadata = {
-  title: "Bazar Dor",
-  description: "bazar dor app",
+  title: 
+    "আজকের বাজার দর | বাজার দর",
+    // template: "%s | বাজার দর",
+  description:
+    "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের আজকের বাজার দর, বাজারভিত্তিক দাম এবং গতকালের সঙ্গে দামের পরিবর্তন জানুন।",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

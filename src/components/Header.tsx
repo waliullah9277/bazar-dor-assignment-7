@@ -1,4 +1,3 @@
-import { ShoppingBasket } from "lucide-react";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import UserDetails from "./UserDetails";
@@ -16,12 +15,10 @@ const Header = () => {
                         href="/"
                         className="flex min-w-0 items-center gap-2 sm:gap-3"
                     >
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-green-600 sm:h-9 sm:w-9">
-                            <ShoppingBasket
-                                size={25}
-                                strokeWidth={2}
-                                className="text-gray-300 sm:h-6 sm:w-6"
-                            />
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-green-600 transition-transform duration-300 group-hover:scale-105 min-[360px]:h-10 min-[360px]:w-10 sm:h-11 sm:w-11 sm:rounded-2xl lg:h-12 lg:w-12">
+                            <span className="text-lg brightness-0 invert min-[360px]:text-xl sm:text-2xl lg:text-[26px]">
+                                🛒
+                            </span>
                         </div>
 
                         <div className="min-w-0">
@@ -29,7 +26,7 @@ const Header = () => {
                                 বাজার দর
                             </h2>
 
-                            <p className="mt-0 text-[8px] leading-3 text-gray-500 whitespace-normal break-words min-[360px]:text-[13px] min-[360px]:leading-4 sm:mt-0.5 sm:text-sm sm:leading-5">
+                            <p className="mt-0 text-[8px] leading-3 text-gray-500 whitespace-normal `break-words` min-[360px]:text-[13px] min-[360px]:leading-4 sm:mt-0.5 sm:text-sm sm:leading-5">
                                 {date}
                             </p>
                         </div>

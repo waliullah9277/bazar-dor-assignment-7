@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 
 const UserDetails = () => {
-    const { data: session } = authClient.useSession();
+    const { data: session, isPending } = authClient.useSession();
     const user = session?.user;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -32,13 +32,19 @@ const UserDetails = () => {
 
     return (
         <div className="ml-auto">
-            {user ? (
+            {isPending ? (
+                // Session loading placeholder
+                <div className="flex items-center gap-2 p-2">
+                    <div className="h-8 w-8 animate-pulse rounded-full bg-gray-200" />
+                    <div className="hidden h-4 w-20 animate-pulse rounded bg-gray-200 sm:block" />
+                </div>
+            ) : user ? (
+                // Logged-in user
                 <div className="relative">
-                    {/* Profile Avatar Button */}
                     <button
                         type="button"
                         onClick={() => setIsOpen(!isOpen)}
-                        className="flex items-center w-auto gap-2 rounded-2xl p-2 transition hover:bg-base-200 cursor-pointer"
+                        className="flex w-auto cursor-pointer items-center gap-2 rounded-2xl p-2 transition hover:bg-base-200"
                         aria-label="প্রোফাইল মেনু"
                         aria-expanded={isOpen}
                     >
@@ -58,7 +64,7 @@ const UserDetails = () => {
                             </div>
                         </div>
 
-                        <span className="max-w-32 truncate text-sm font-medium ">
+                        <span className="max-w-32 truncate text-sm font-medium">
                             {user.name}
                         </span>
 
@@ -77,7 +83,6 @@ const UserDetails = () => {
                         </svg>
                     </button>
 
-                    {/* Dropdown Menu */}
                     {isOpen && (
                         <>
                             <button
@@ -88,7 +93,6 @@ const UserDetails = () => {
                             />
 
                             <div className="absolute right-0 z-50 mt-2 w-64 overflow-hidden rounded-xl border border-base-300 bg-base-100 shadow-xl">
-                                {/* User Info */}
                                 <div className="border-b border-base-300 px-4 py-4">
                                     <p className="truncate text-sm font-semibold text-base-content">
                                         {user.name}
@@ -98,7 +102,6 @@ const UserDetails = () => {
                                     </p>
                                 </div>
 
-                                {/* Profile Link */}
                                 <Link
                                     href="/profile"
                                     onClick={() => setIsOpen(false)}
@@ -121,12 +124,11 @@ const UserDetails = () => {
                                     আমার প্রোফাইল
                                 </Link>
 
-                                {/* Sign Out */}
                                 <div className="border-t border-base-300 p-2">
                                     <button
                                         type="button"
                                         onClick={handleSignOut}
-                                        className="flex cursor-pointer w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50"
+                                        className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -149,6 +151,7 @@ const UserDetails = () => {
                     )}
                 </div>
             ) : (
+                // Logged-out user
                 <div className="flex items-center gap-2">
                     <Link
                         href="/signin"
