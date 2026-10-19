@@ -34,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <PriceTicker />
 
-        <main>
+        <main className="flex-1">
           {children}
         </main>
         <Toaster position="top-center" />

@@ -61,13 +61,13 @@ const SignUpPage = () => {
 
 
     const handleGoogleAccount = async () => {
-        const data = await authClient.signIn.social({
+        await authClient.signIn.social({
             provider: "google",
         });
     }
 
     const handleGithubAccount = async () => {
-        const data = await authClient.signIn.social({
+        await authClient.signIn.social({
             provider: "github",
         });
     }
@@ -205,11 +205,11 @@ const SignUpPage = () => {
 
                 {/* Social Login Divider */}
                 <div className="relative my-5 flex items-center">
-                    <div className="flex-grow border-t border-base-300"></div>
+                    <div className="border-t border-base-300"></div>
                     <span className="px-4 text-xs font-medium uppercase tracking-widest text-base-content/50">
                         Or continue with
                     </span>
-                    <div className="flex-grow border-t border-base-300"></div>
+                    <div className="border-t border-base-300"></div>
                 </div>
 
                 {/* Google Sign In */}
