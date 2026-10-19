@@ -1,6 +1,7 @@
 import { ShoppingBasket } from "lucide-react";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
+import UserDetails from "./UserDetails";
 
 const Header = () => {
     const date = new Date().toLocaleDateString("bn-BD", {
@@ -36,19 +37,7 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-end gap-1.5 sm:gap-2">
-                    <Link
-                        href="/signin"
-                        className="btn btn-ghost btn-xs rounded-lg px-2 min-[360px]:px-3 sm:btn-md sm:px-5"
-                    >
-                        সাইন ইন
-                    </Link>
-
-                    <Link
-                        href="/signup"
-                        className="btn btn-xs rounded-lg border-green-600 bg-green-600 px-2 text-white hover:border-green-700 hover:bg-green-700 min-[360px]:px-3 sm:btn-md sm:px-5"
-                    >
-                        সাইন আপ
-                    </Link>
+                    <UserDetails/>
                 </div>
             </nav>
 

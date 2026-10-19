@@ -7,9 +7,6 @@ import toast from 'react-hot-toast';
 const SignInPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const [passwordError, setPasswordError] = useState("");
-
-
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -42,19 +39,17 @@ const SignInPage = () => {
         }
     };
 
+    const handleGoogleAccount = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
 
-
-    // const handleGoogleAccount = async () => {
-    //     const data = await authClient.signIn.social({
-    //         provider: "google",
-    //     });
-    // }
-
-    // const handleGithubAccount = async () => {
-    //     const data = await authClient.signIn.social({
-    //         provider: "github",
-    //     });
-    // }
+    const handleGithubAccount = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+        });
+    }
 
 
     return (
@@ -146,7 +141,7 @@ const SignInPage = () => {
                 {/* Google Sign In */}
                 <button
                     type="button"
-                    // onClick={handleGoogleAccount}
+                    onClick={handleGoogleAccount}
                     className="flex h-11 w-full items-center justify-center gap-3 rounded-lg border border-base-300 bg-base-100 px-4 text-sm font-semibold text-base-content shadow-sm transition-all cursor-pointer duration-300 hover:border-gray-400 hover:bg-base-200 active:scale-[0.98]"
                 >
                     <svg
@@ -180,7 +175,7 @@ const SignInPage = () => {
 
                 {/* GitHub Sign In - UI Only */}
                 <button
-                    // onClick={handleGithubAccount}
+                    onClick={handleGithubAccount}
                     type="button"
                     className="mt-3 flex h-11 w-full items-center justify-center gap-3 rounded-lg border border-base-300 bg-base-100 px-4 text-sm font-semibold text-base-content shadow-sm transition-all cursor-pointer duration-300 hover:border-gray-400 hover:bg-base-200 active:scale-[0.98]"
                 >
