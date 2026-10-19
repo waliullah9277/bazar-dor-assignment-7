@@ -1,12 +1,13 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const SignInPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const router = useRouter();
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -28,7 +29,7 @@ const SignInPage = () => {
                 duration: 5000,
             });
 
-            redirect("/");
+            router.push("/");
         } else {
             const message =
                 error?.message ?? "সাইন ইন ব্যর্থ হয়েছে। আবার চেষ্টা করুন।";

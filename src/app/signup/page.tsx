@@ -1,10 +1,11 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
-import { redirect } from 'next/navigation';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 const SignUpPage = () => {
+    const router = useRouter();
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -46,7 +47,7 @@ const SignUpPage = () => {
                 duration: 5000,
             });
 
-            redirect("/");
+            router.push("/");
         } else {
             const message =
                 error?.message === "User already exists. Use another email."
